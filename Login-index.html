@@ -1,0 +1,128 @@
+<!-- www.TrabaHope.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | TrabaHope</title>
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="Login-style.css">
+    <script src="Login-script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded">menu</span>
+            <a href="#" class="logo">
+                <img src="images/logo.jpg" alt="logo">
+                <h2>TrabaHope</h2>
+            </a>
+            
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+                <li><a href="home-index.html" class="home-btn">Home</a></li>
+                <li><a href="#">Discovery</a></li>
+                <li><a href="#">My Activity</a></li>
+                <li><a href="chat.html" class="class-btn">Chats</a></li>
+            </ul>
+           
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn">
+                    ENG <span class="arrow">&#9660;</span>
+                </button>
+                <ul class="lang-dropdown">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Spanish</a></li>
+                    <li><a href="#">French</a></li>
+                    <li><a href="#">German</a></li>
+                </ul>
+            </div>
+
+            <button class="login-btn">LOG IN</button>
+        </nav>
+    </header>
+
+    <div class="blur-bg-overlay"></div>
+    <div class="form-popup">
+        <span class="close-btn material-symbols-rounded">close</span>
+             
+        <!-- Login Form -->
+        <div class="form-box login">
+            <div class="form-details"></div>
+            <div class="form-content">
+                <h2>WELCOME!</h2>
+                <h2>LOGIN</h2>
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <a href="#" class="forgot-pass-link">Forgot password?</a>
+                    <button type="submit">Log In</button>
+                </form>
+                <div class="bottom-link">
+                    Don't have an account?
+                    <a href="#" id="signup-link">Signup</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Signup Form -->
+        <div class="form-box signup">
+            <div class="form-details"></div>
+            <div class="form-content">
+                <h2>SIGNUP</h2>
+                <h2>CREATE YOUR ACCOUNT!</h2>
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Enter your email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required>
+                        <label>Create password</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required>
+                        <label>Retype password</label>
+                    </div>
+                    <div class="policy-text">
+                        <input type="checkbox" id="policy">
+                        <label for="policy">
+                            I agree to the
+                            <a href="#" class="option">Terms & Conditions</a>
+                        </label>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="bottom-link">
+                    Already have an account? 
+                    <a href="#" id="login-link">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="website-description">
+        <h1>Welcome to TrabaHope</h1>
+        <p>Your gateway to countless job opportunities. Explore, discover, and apply for jobs that suit your skills and passion. Let TrabaHope guide you towards your dream career!</p>       
+        <div class="services-section">
+            <h2>Our Services</h2>
+            <ul>
+                <li><span class="material-symbols-rounded">work</span> Job Listings – Find jobs from top companies in various industries.</li>
+                <li><span class="material-symbols-rounded">edit_note</span> Resume Building – Create a standout resume with our easy-to-use tools.</li>
+                <li><span class="material-symbols-rounded">help</span> Career Advice – Get tips and guidance on navigating your career path.</li>
+                <li><span class="material-symbols-rounded">track_changes</span> Application Tracking – Keep track of your job applications in one place.</li>
+            </ul>
+        </div>
+         <div class="more-section">
+            <h2>Why Choose TrabaHope?</h2>
+            <p>We offer personalized job recommendations, industry insights, and a user-friendly platform designed to make your job search easier. Whether you're a fresh graduate or an experienced professional, TrabaHope is here to help you succeed.</p>
+        </div>
+    </div>      
+</body>
+</html>

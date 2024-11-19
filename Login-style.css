@@ -1,0 +1,687 @@
+    /* Importing Google font - Open Sans */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/hero-bg.jpg") center/cover no-repeat;
+    z-index: -1;
+}
+header {
+    position: relative  ;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+}
+
+/* ... rest of your styles remain unchanged ... */
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative; /* Change to relative if fixed positioning causes issues */
+}
+.navbar .hamburger-btn {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.navbar .logo img {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%;
+    
+}
+@font-face {
+    font-family: 'Bell MT';
+    src: url('fonts/BellMT.woff2') format('woff2'),
+         url('fonts/BellMT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.navbar .logo h2 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1; /* Ensure logo text is vertically aligned */
+    margin: 0; /* Remove default margin */
+    font-family: 'Bell MT', serif; /* Apply the Bell MT font */
+}
+.navbar .links {
+    display: flex;
+    gap: 50px; /* Increase the gap between the links */
+    list-style: none;
+    margin: 0; /* Remove default margin */
+    align-items: center; /* Align links with the logo */
+    flex-grow: 1; /* Allow links to take available space */
+    justify-content: center; /* Center links within the navbar */
+    margin-top: 10px;
+}
+.navbar .links li {
+    display: flex; /* Ensure each link is a flex item */
+    align-items: center; /* Center each link vertically */
+}
+.navbar .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.navbar .links a {
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar .links a:hover {
+    color: #19e8ff;
+      transform: translateY(-5px);
+}
+.language-selector {
+    position: relative;
+    margin-right: 30px; /* Space before the login button */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    gap: 40px; /* Adjust gap as needed for spacing */
+    z-index: 20; 
+}
+.lang-btn {
+    background: none; /* Remove background */
+    color: #000; /* Adjust text color as needed */
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0; /* Remove padding */
+    border: none; /* Remove border */
+    cursor: pointer; /* Keep the pointer to indicate it's clickable */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 40px;
+    box-shadow: none; /* Remove shadow */
+    margin-top: 15px;
+}
+
+
+.lang-btn:hover {
+    background: none; /* No background change on hover */
+    transform: none; /* No lift effect on hover */
+    color: #19e8ff; /* Optionally change text color on hover */
+    box-shadow: none; /* No shadow on hover */
+}
+
+.lang-btn .arrow {
+    font-size: 0.75rem;
+    color: #275360;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%; /* Position just below the button */
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: none; /* Hide by default */
+    list-style: none;
+    width: 100px;
+    pointer-events: none; /* Prevent pointer events when hidden */
+    z-index: 100; /* Make sure it's above other elements */
+}
+.language-selector:hover .lang-dropdown,
+.lang-dropdown.show {
+    display: block; /* Show when hovering or toggled */
+    pointer-events: auto; /* Allow interactions when shown */
+}
+.lang-dropdown li {
+    padding: 5px 0;
+}
+
+.lang-dropdown li a {
+    text-decoration: none;
+    color: #275360;
+    display: block;
+}
+
+.lang-dropdown li a:hover {
+    color: #00bcd4;
+}
+
+.language-selector:hover .lang-dropdown {
+    display: block;
+}
+.navbar .login-btn {
+    background: #00bcd4; /* Use a vibrant color for the login button */
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-left: 10px;
+    border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    margin-top: 13px;
+}
+.navbar .login-btn:hover {
+    background: #0097a7; /* Darker shade for hover effect */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deepen shadow on hover */
+}
+.form-popup {
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    max-width: 720px;
+    background: #fff;
+    border: 2px solid #fff;
+    transform: translate(-50%, -70%);
+	transition: opacity 0.3s ease, transform 0.3s ease; /* Added transition */
+    display: none;
+}
+.form-box {
+    border-radius: 30px;
+    display: flex;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Added transition */
+    opacity: 1; /* Ensure it starts fully visible */
+}
+.form-popup.show-signup .form-box {
+    transform: translateY(10px); /* Slight movement for effect */
+    opacity: 0; /* Hidden initially */
+}
+
+.form-popup.show-signup .form-box.signup {
+    transform: translateY(0); /* Reset position for signup */
+    opacity: 1; /* Show signup form */
+}
+
+.form-popup.show-signup .form-box.login {
+    transform: translateY(-10px); /* Move up slightly when hiding */
+    opacity: 0; /* Hide login form */
+}
+
+.show-popup .form-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.form-popup .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #878484;
+    cursor: pointer;
+}
+
+.blur-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: 0.1s ease;
+}
+
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-popup .form-box {
+    display: flex;
+	
+}
+
+
+.form-box .form-details {
+    width: 100%;
+    color: #fff;
+    max-width: 330px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login .form-details {
+    padding: 0 40px;
+    background: url("images/login-img.jpg");
+    border-radius: 20px;
+    background-position: center;
+    background-size: cover;
+	font-weight: bold;
+	color: #000;
+    width: 100%;
+    height: 400px;
+    box-sizing: border-box;
+    margin-top: 36px;
+    margin-left: 30px;
+   
+}
+
+.signup .form-details {
+    padding: 0 15px;
+    background: url("images/signup-img.jpg");
+    background-position: center;
+    background-size: cover;
+	font-weight: bold;
+	color: #000;
+    width: 100%;
+    height: 455px;
+    box-sizing: border-box;
+    margin-top: 41px;
+    margin-left: 30px;
+    border-radius: 20px;
+}
+.signup .form-box .input-field {
+    margin-top: 15px; /* Reduce margin between input fields for compact layout */
+}
+.input-field input {
+    height: 45px; /* Adjust height for all inputs */
+}
+.input-field input:is(:focus, :valid)~label {
+    transform: translateY(-110%); /* Adjust label transformation for compact input */
+}
+
+.form-box .form-content {
+    width: 100%;
+    padding: 35px 25px;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-field input {
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    border: 1px solid #717171;
+    border-radius: 3px;
+}
+
+.input-field input:focus {
+    border: 1px solid #00bcd4;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #4a4646;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) {
+    padding: 16px 15px 0;
+}
+
+.input-field input:is(:focus, :valid)~label {
+    transform: translateY(-120%);
+    color: #00bcd4;
+    font-size: 0.75rem;
+}
+
+.form-box a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.form-box a:hover {
+    text-decoration: underline;
+}
+
+form :where(.forgot-pass-link, .policy-text) {
+    display: inline-flex;
+    margin-top: 13px;
+    font-size: 0.95rem;
+}
+
+form button {
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 25px 0;
+    background: #00bcd4;
+    transition: 0.2s ease;
+}
+
+form button:hover {
+    background: #0097a7;
+}
+
+.form-content .bottom-link {
+    text-align: center;
+}
+
+.form-popup .signup,
+.form-popup.show-signup .login {
+    display: none;
+}
+
+.form-popup.show-signup .signup {
+    display: flex;
+}
+
+.signup .policy-text {
+    display: flex;
+    margin-top: 14px;
+    align-items: center;
+}
+
+.signup .policy-text input {
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+}
+
+@media (max-width: 950px) {
+    .navbar :is(.hamburger-btn, .close-btn) {
+        display: block;
+    }
+
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .navbar .logo img {
+        display: none;
+    }
+
+    .navbar .logo h2 {
+        font-size: 1.4rem;
+    }
+
+    .navbar .links {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        left: -100%;
+        display: block;
+        height: 100vh;
+        width: 100%;
+        padding-top: 60px;
+        text-align: center;
+        background: #fff;
+        transition: 0.2s ease;
+    }
+
+    .navbar .links.show-menu {
+        left: 0;
+    }
+
+    .navbar .links a {
+        display: inline-flex;
+        margin: 20px 0;
+        font-size: 1.2rem;
+        color: #000;
+    }
+
+    .navbar .links a:hover {
+        color: #00BCD4;
+    }
+
+    .navbar .login-btn {
+        font-size: 0.9rem;
+        padding: 7px 10px;
+    }
+}
+
+@media (max-width: 760px) {
+    .form-popup {
+        width: 95%;
+    }
+
+    .form-box .form-details {
+        display: none;
+    }
+
+    .form-box .form-content {
+        padding: 30px 20px;
+    }
+}
+
+
+/* Website Description Styling */
+.website-description {
+    text-align: center;
+    margin: .1px auto; /* Center horizontally with space from the top */
+    padding: 30px; /* Reduced padding for a more compact feel */
+    background: linear-gradient(to bottom right, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%), 
+                url('path/to/your/background-pattern.png'); /* Add your background pattern image */
+    background-size: cover; /* Ensure the background covers the entire area */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
+    border-radius: 10px;
+    max-width: 900px; /* Reduced max-width */
+    font-family: "Open Sans", sans-serif;
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeInUp 0.6s forwards; /* Animation for entrance */
+    position: relative; /* Relative position for child elements */
+    margin-top: 50px;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.website-description h1 {
+    font-size: 2.2rem; /* Adjusted size for less prominence */
+    font-weight: 700;
+    color: #000000; /* A vibrant color for the header */
+    margin-bottom: 10px; /* Adjusted margin */
+    letter-spacing: 0.5px; /* Adjusted spacing for style */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    animation: bounceIn 1s forwards; /* Bounce animation for header */
+}
+
+@keyframes bounceIn {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+}
+
+.website-description p {
+    font-size: 1rem; /* Kept size for readability */
+    color: #34495e;
+    line-height: 1.6; /* Slightly decreased line height for compactness */
+    margin-bottom: 15px; /* Adjusted margin */
+    transition: color 0.3s, transform 0.3s; /* Smooth color and transform transition */
+}
+
+.website-description p:hover {
+    color: #2980b9; /* Change color on hover */
+    transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+/* Services Section */
+.services-section, .more-section {
+    margin-top: 30px; /* Reduced margin */
+    padding: 0 10px; /* Reduced padding */
+}
+
+.services-section h2, .more-section h2 {
+    font-size: 1.8rem; /* Slightly smaller size for emphasis */
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 10px; /* Adjusted margin */
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Adjusted spacing */
+    border-bottom: 2px solid #2980b9; /* Thinner border */
+    display: inline-block;
+    padding-bottom: 5px;
+    animation: fadeInDown 0.5s forwards; /* Animation for section headers */
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.services-section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95rem; /* Slightly smaller font size */
+    color: #7f8c8d;
+    line-height: 1.5; /* Slightly decreased line height */
+}
+
+.services-section ul li {
+    margin: 4px 0; /* Reduced margin */
+    display: flex;
+    align-items: center;
+    padding: 8px; /* Slightly reduced padding */
+    border-radius: 8px;
+    background-color: rgba(249, 249, 249, 0.8); /* Slight transparency */
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    cursor: pointer; /* Show pointer cursor */
+    animation: fadeIn 0.5s forwards; /* Animation for list items */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.services-section ul li:hover {
+    color: #2980b9;
+    background-color: rgba(224, 247, 250, 0.8); /* Softer hover color */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow on hover */
+}
+
+.services-section ul li .material-symbols-rounded {
+    font-size: 1.4rem; /* Adjusted icon size */
+    margin-right: 8px; /* Reduced margin */
+    color: #2980b9;
+}
+
+/* More Section */
+.more-section p {
+    font-size: 1rem; /* Kept size for readability */
+    color: #7f8c8d;
+    line-height: 1.6; /* Kept line height */
+    background-color: rgba(249, 249, 249, 0.8); /* Slight transparency */
+    padding: 12px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s; /* Smooth transition for scaling effect */
+}
+
+.more-section p:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+    background-color: rgba(240, 240, 240, 0.9); /* Change background on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 750px) {
+    .website-description {
+        padding: 20px; /* Adjusted padding for smaller screens */
+        max-width: 100%;
+    }
+
+    .website-description h1 {
+        font-size: 1.8rem; /* Adjusted size for smaller screens */
+    }
+
+    .services-section ul li {
+        font-size: 0.9rem; /* Adjusted size for smaller screens */
+    }
+
+    .more-section p {
+        font-size: 0.9rem; /* Adjusted size for smaller screens */
+    }
+}

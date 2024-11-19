@@ -1,0 +1,791 @@
+ /* Importing Google font - Open Sans */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+@font-face {
+    font-family: 'Lucida Calligraphy';
+    src: url('fonts/LucidaCalligraphy.woff2') format('woff2'),
+         url('fonts/LucidaCalligraphy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 130%;
+    background: url("images/home-bg.jpg") center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative; /* Change to relative if fixed positioning causes issues */
+}
+
+.navbar .hamburger-btn {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navbar .logo-container {
+    display: flex;
+    flex-direction: column; /* Stack logo and dropdown button */
+    align-items: center; /* Center items */
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.navbar .logo img {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-bottom: 25px;
+}
+@font-face {
+    font-family: 'Bell MT';
+    src: url('fonts/BellMT.woff2') format('woff2'),
+         url('fonts/BellMT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.navbar .logo h2 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 2.5rem; /* Current size */
+    line-height: 1;
+    margin: 0;
+    font-family: 'Bell MT', serif;
+    margin-bottom: 25px;
+}
+.navbar .links {
+    display: flex;
+    gap: 80px; /* Increase the gap between the links */
+    list-style: none;
+    margin: 0; /* Remove default margin */
+    align-items: center; /* Align links with the logo */
+    flex-grow: 1; /* Allow links to take available space */
+    justify-content: center; /* Center links within the navbar */
+}
+
+.navbar .links li {
+    display: flex; /* Ensure each link is a flex item */
+    align-items: center; /* Center each link vertically */
+}
+
+.navbar .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.navbar .links a {
+    margin-bottom: 80px;
+    color: #000000;
+    font-size: 1.1rem; /* Current size */
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+     padding: 10px 15px; /* Add padding for better background appearance */
+}
+.navbar .links a.active, .navbar .links a.Discovery-btn {
+    background-color: #4eb3f6; /* Background to indicate the user is on the homepage */
+    color: #ffffff; /* Change text color */
+    border-radius: 5px; /* Add rounded corners */ 
+}
+.navbar .links a:hover {
+    color: #19e8ff;
+    transform: translateY(-5px);
+}
+
+.language-selector {
+    position: relative;
+    margin-right: 30px; /* Space before the login button */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    gap: 40px; /* Adjust gap as needed for spacing */
+    z-index: 20;
+    margin-bottom: 83px;
+}
+
+.lang-btn {
+    background: none; /* Remove background */
+    color: #000; /* Adjust text color as needed */
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0; /* Remove padding */
+    border: none; /* Remove border */
+    cursor: pointer; /* Keep the pointer to indicate it's clickable */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 40px;
+    box-shadow: none; /* Remove shadow */
+    margin-top: 5px;
+}
+
+.lang-btn:hover {
+    background: none; /* No background change on hover */
+    transform: none; /* No lift effect on hover */
+    color: #19e8ff; /* Optionally change text color on hover */
+    box-shadow: none; /* No shadow on hover */
+}
+
+.lang-btn .arrow {
+    font-size: 1 rem;
+    color: #275360;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%; /* Position just below the button */
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: none; /* Hide by default */
+    list-style: none;
+    width: 100px;
+    pointer-events: none; /* Prevent pointer events when hidden */
+    z-index: 100; /* Make sure it's above other elements */
+}
+
+.lang-dropdown.show {
+    display: block; /* Show when toggled */
+    pointer-events: auto; /* Allow interactions when shown */
+}
+
+.lang-dropdown li {
+    padding: 5px 0;
+}
+
+.lang-dropdown li a {
+    text-decoration: none;
+    color: #275360;
+    display: block;
+}
+
+.lang-dropdown li a:hover {
+    color: #00bcd4;
+}
+
+.language-selector:hover .lang-dropdown {
+    display: block;
+}
+
+/* Profile Section Styles */
+.profile {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin-left: 20px; /* Adjust space as needed */
+    margin-bottom: 48px;
+}
+
+.profile-pic {
+    margin-top: 1px;
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    border-radius: 50%; /* Make it circular */
+}
+
+.profile-label {
+    font-size: 1.0rem;
+    color: #000; /* Adjust text color as needed */
+    font-weight: 600;
+}
+.search-title {
+    text-align: center; /* Center the title */
+    color: #000; /* Text color */
+    font-size: 50px; /* Adjust font size as needed */
+    font-weight: 400; /* Adjust font weight as needed */
+    margin-top: 120px;
+     font-family: 'Lucida Calligraphy', cursive;
+}
+
+/* Search Bar Container */
+.search-bar-container {
+    display: flex;
+    flex-direction: column; /* Stack title and search bar vertically */
+    justify-content: center; /* Center the content */
+    align-items: center; /* Center the content */
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 8px 15px; /* Adjust padding as needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Limit maximum width */
+    height: 50px; /* Set a fixed height for the search bar */
+    margin-top: 50px; /* Adjust as needed to position the search bar */
+   
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%; /* Full width within container */
+    height: 100%; /* Make input fill the search bar */
+}
+
+.search-bar .search-btn img {
+    width: 30px; /* Adjust icon size if necessary */
+    height: 30px; /* Adjust icon size if necessary */
+    margin-top: 6px;
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+}
+
+.search-bar .search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar .search-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Ensure the search bar stays centered on mobile */
+@media (max-width: 768px) {
+    .search-bar {
+        width: 90%; /* Adjust width for smaller screens */
+        max-width: none; /* Remove maximum width limit */
+    }
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column; /* Stack lines vertically */
+    cursor: pointer; /* Pointer cursor */
+    margin-bottom: 25px; /* Space below the logo */
+    position: relative; /* Ensure it is positioned relative for dropdown */
+    margin-right: 215px;
+}
+
+.line {
+    width: 30px; /* Width of each line */
+    height: 4px; /* Height of each line */
+    background-color: #275360; /* Color of the lines */
+    margin: 3px 0; /* Space between lines */
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Add this line */
+    top: 80%; /* Position just below the menu toggle button */
+    left: 0; /* Align to the left of the menu toggle */
+    margin-top: 5px; /* Space above dropdown */
+    background-color: #fff; /* Background for dropdown */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    padding: 10px; /* Inner padding */
+    z-index: 100; /* Ensure it is above other content */
+}
+
+.dropdown-content ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.dropdown-content li {
+    padding: 5px 0; /* Space between items */
+}
+
+.dropdown-content li a {
+    text-decoration: none; /* Remove underline */
+    color: #275360; /* Text color */
+    transition: color 0.3s ease; /* Transition for color change */
+}
+
+.dropdown-content li a:hover {
+    color: #19e8ff; /* Change color on hover */
+}
+
+/* Show dropdown when 'show' class is added */
+.dropdown-content.show {
+    display: block; /* Display block when shown */
+}
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align to start */
+    }
+
+    .navbar .hamburger-btn {
+        display: block; /* Show hamburger button on mobile */
+    }
+
+    .navbar .links {
+        display: none; /* Hide links on mobile by default */
+        flex-direction: column; /* Stack links vertically */
+        gap: 0; /* Remove gap for mobile */
+        width: 100%; /* Full width */
+        background: white; /* Background for dropdown */
+    }
+
+    .navbar .links.show {
+        display: flex; /* Show links when toggled */
+        position: absolute; /* Position absolutely */
+        top: 60px; /* Below the navbar */
+        left: 0; /* Align to left */
+        padding: 10px; /* Inner padding */
+        border: 1px solid #ddd; /* Border around links */
+        z-index: 100; /* Ensure above other content */
+    }
+
+    .search-title {
+        font-size: 30px; /* Adjust font size for mobile */
+        margin-top: 20px; /* Reduce margin for mobile */
+    }
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 1px; /* 1px gap between the search input and button */
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 8px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.filter-container {
+    display: flex; /* Use flexbox for horizontal layout */
+    align-items: center; /* Align items vertically centered */
+    justify-content: flex-start; /* Distribute space between items */
+    gap: 10px; /* Adjust gap between items as needed */
+    margin-top: 20px; /* Space above the filter container */
+    margin: 3px;
+    margin-right: 130px;
+}
+
+/* Dropdown Styles for Employment Type and Industry */
+.dropdown-select {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%; /* Full width */
+    max-width: 150px; /* Set consistent width */
+    font-size: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    height: 35px;
+}
+
+.dropdown-select:hover {
+    border-color: #19e8ff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: stretch;
+    }
+
+    .filter-button, .dropdown-select {
+        width: 100%; /* Full width on mobile */
+    }
+}
+/* ------------------- Suggested Jobs Section ------------------- */
+
+/* Combined Jobs Container */
+.jobs-container {
+    margin: 40px auto; /* Center the container with auto margins */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1100px; /* Limit the maximum width */
+    margin-top: 30px;
+}
+.jobs-container .image-container img {
+    width: 200px ; /* Ensures the images take the full width of their container */
+    height: 100px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the images don't get stretched or squished */
+    border-radius: 5px; /* Optional: adds rounded corners */
+}
+
+/* Heading Style */
+.jobs-container h2 {
+    font-size: 1.8rem;
+    color: #275360;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Grid Layout for Both Suggested Jobs and New Job Cards */
+.jobs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Five columns */
+    gap: 20px;
+}
+
+.job-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+    text-align: center;
+}
+
+.job-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.job-card h3 {
+    font-size: 1.0rem;
+    color: #275360;
+    margin-bottom: 10px;
+}
+
+.job-description {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    backdrop-filter: blur(5px);
+}
+
+.job-card:hover .job-description {
+    opacity: 1;
+    font-size: small;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .jobs {
+        grid-template-columns: repeat(4, 1fr); /* Four columns on medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .jobs {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .jobs {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on extra small screens */
+    }
+
+    .jobs-container {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .jobs-container h2 {
+        font-size: 1.75rem;
+    }
+
+    .job-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .job-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .jobs {
+        grid-template-columns: 1fr; /* One column on very small screens */
+    }
+}
+
+
+/* ------------------- Sidebar Styles ------------------- */
+
+.job-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Hide sidebar by shifting it out of view */
+    width: 350px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 200; /* Above other content */
+    overflow-y: auto;
+}
+
+.job-sidebar.active {
+    right: 0; /* Slide in sidebar */
+}
+
+.sidebar-content {
+    padding: 20px;
+    position: relative;
+}
+
+.close-sidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #275360;
+}
+
+.sidebar-content h2 {
+    font-size: 1.5rem;
+    color: #275360;
+    margin-bottom: 15px;
+
+}
+
+.sidebar-content p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.sidebar-content h3 {
+    font-size: 1.0rem;
+    color: #275360;
+    margin-bottom: 10px;
+}
+
+.sidebar-content ul {
+    list-style: disc inside;
+    margin-bottom: 30px;
+}
+
+.sidebar-content ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.sidebar-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.apply-btn,
+.save-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.apply-btn {
+    background-color: #19e8ff;
+    color: #fff;
+}
+
+.apply-btn:hover {
+    background-color: #17c0e3;
+}
+
+.save-btn {
+    background-color: #fff;
+    color: #275360;
+    border: 2px solid #275360;
+}
+
+.save-btn:hover {
+    background-color: #275360;
+    color: #fff;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 600px) {
+    .job-sidebar {
+        width: 100%;
+        right: -100%; /* Initially hide the sidebar out of view */
+    }
+
+    .job-sidebar.active {
+        right: 0; /* Slide in sidebar */
+    }
+}
+.footer {
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+    margin-bottom: 100px;
+    height: 150x;
+    font-size: 0.9em; /* Adjusted font size for the entire footer */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+    text-align: left; /* Align text to the left */
+}
+
+.footer-section h2 {
+    color: #61dafb;
+    font-size: 1.1em; /* Adjusted size for section headers */
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 0.9em; /* Adjusted font size for paragraphs */
+}
+.footer-icons a {
+    color: #00BCD4;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-icons a:hover {
+    color: #fff;
+}
+.social-icon {
+    display: inline-block;
+    margin: 5px 10px;
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 1.5rem; /* Adjusted font size for social icons */
+}
+
+.social-icon:hover {
+    text-decoration: underline;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 0.9em; /* Adjusted font size for input */
+}
+.facebook-btn {
+    color: #61dafb; /* Use the same color as your site's color scheme */
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 0.9 rem;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.facebook-btn:hover {
+    color: #00BCD4; /* On hover, change to the other blue shade in your scheme */
+    border-color: #00BCD4;
+}
+
+
+.newsletter button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #282c34;
+    cursor: pointer;
+    font-size: 0.9em; /* Adjusted font size for button */
+}
+
+.newsletter button:hover {
+    background-color: #21a1f1;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.8em; /* Adjusted font size for footer bottom text */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Stack sections on small screens */
+        align-items: center; /* Center align for smaller screens */
+    }
+
+    .footer-section {
+        text-align: center; /* Center align text for smaller screens */
+    }
+}

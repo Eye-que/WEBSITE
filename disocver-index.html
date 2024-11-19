@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery | TrabaHope</title>
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="discover-style.css">
+    <script src="discover-script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded" onclick="toggleDropdown()">menu</span>
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <img src="images/logo.jpg" alt="logo">
+                    <h2>TrabaHope</h2>
+                </a>
+                <!-- Dropdown Menu for Settings, Help, and About -->
+                <div class="menu-toggle" onclick="toggleDropdown()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="dropdown-content" id="dropdownContent">
+                <ul>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">About TrabaHope</a></li>
+                </ul>
+            </div>
+            
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+                <li><a href="home-index.html" class="home-btn">Home</a></li>
+                <li><a href="disocver-index.html" class="Discovery-btn">Discovery</a></li>
+                <li><a href="#">My Activity</a></li>
+                <li><a href="chat.html" class="class-btn">Chats</a></li>
+            </ul>
+           
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn">
+                    ENG <span class="arrow">&#9660;</span>
+                </button>
+                <ul class="lang-dropdown">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Spanish</a></li>
+                    <li><a href="#">French</a></li>
+                    <li><a href="#">German</a></li>
+                </ul>
+            </div>
+                
+            <!-- Profile Section -->
+            <div class="profile">
+                <img src="images/profile.jpg" alt="profile" class="profile-pic">
+                <span class="profile-label">Profile</span>
+            </div>
+        </nav>
+    </header>
+    <div class="blur-bg-overlay"></div>
+
+    <div class="search-bar-container">
+        <h1 class="search-title">Dream and Cope with TrabaHope!</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button class="search-btn">
+                <img src="images/search-icon.jpg" alt="Search">
+            </button>
+        </div>
+
+        <!-- Filter Container -->
+        <div class="filter-container">
+            <!-- New Filters Dropdown -->
+            <select class="dropdown-select filter-btn">
+                <option value="">Filters</option>
+                <option value="location">Location</option>
+                <option value="salary-range">Salary Range</option>
+                <option value="job">Job</option>
+            </select>
+
+            <!-- Employment Type Dropdown -->
+            <select class="dropdown-select employment-type-btn">
+                <option value="">Employment Type</option>
+                <option value="full-time">Full Time</option>
+                <option value="part-time">Part Time</option>
+                <option value="contract">Contract</option>
+            </select>
+
+            <!-- Industry Dropdown -->
+            <select class="dropdown-select industry-btn">
+                <option value="">Industry</option>
+                <option value="technology">Technology</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="finance">Finance</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Combined Jobs Section -->
+    <section class="jobs-container">
+        <h2>Suggested and New Jobs</h2>
+        <div class="jobs">
+            <!-- Suggested Jobs -->
+            <div class="job-card" data-job="software-engineer">
+                <h3>Software Engineer</h3>
+                <p class="job-description">Join our team to develop innovative software solutions.</p>
+                <div class="image-container">
+                    <img src="images/sidebar-img.jpg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+            <div class="job-card" data-job="data-analyst">
+                <h3>Data Analyst</h3>
+                <p class="job-description">Analyze and interpret complex data to help us make better business decisions.</p>
+                <div class="image-container">
+                    <img src="images/Data-analyst.jpg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+            <div class="job-card" data-job="product-manager">
+                <h3>Product Manager</h3>
+                <p class="job-description">Lead product development from conception to launch.</p>
+                <div class="image-container">
+                    <img src="images/p-manager.jpg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+            <div class="job-card" data-job="ux-designer">
+                <h3>UX Designer</h3>
+                <p class="job-description">Design intuitive user experiences for our applications.</p>
+                <div class="image-container">
+                    <img src="images/ux-designer.jpg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+            <div class="job-card" data-job="marketing-specialist">
+                <h3>Marketing Specialist</h3>
+                <p class="job-description">Develop and execute marketing strategies to promote our brand.</p>
+                <div class="image-container">
+                    <img src="images/marketing.jpg=ws1280x960.webp" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+
+            <!-- New Job Cards -->
+            <div class="job-card" data-job="hr-manager">
+                <h3>HR Manager</h3>
+                <p class="job-description">Oversee recruitment, training, and employee relations.</p>
+                <div class="image-container">
+                    <img src="images/hr.jpg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+            <div class="job-card" data-job="financial-analyst">
+                <h3>Financial Analyst</h3>
+                <p class="job-description">Provide financial forecasting, reporting, and operational metrics.</p>
+                <div class="image-container">
+                    <img src="images/financial.jpg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+            <div class="job-card" data-job="web-developer">
+                <h3>Web Developer</h3>
+                <p class="job-description">Create and maintain websites and web applications.</p>
+                <div class="image-container">
+                    <img src="images/web-developer.jpg" alt="Job Image" style="width: 100%;">
+                </div> 
+            </div>
+            <div class="job-card" data-job="graphic-designer">
+                <h3>Graphic Designer</h3>
+                <p class="job-description">Design visual content for digital and print media.</p>
+                <div class="image-container">
+                    <img src="images/graphic.jpeg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+            <div class="job-card" data-job="sales-manager">
+                <h3>Sales Manager</h3>
+                <p class="job-description">Lead the sales team to achieve revenue targets.</p>
+                <div class="image-container">
+                    <img src="images/sales.jpg" alt="Job Image" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <aside class="job-sidebar" id="jobSidebar">
+        <div class="sidebar-content">
+            <span class="close-sidebar material-symbols-rounded" onclick="closeSidebar()">x</span>   
+            <h2 id="sidebarJobTitle">Job Title</h2>
+            <p id="sidebarJobDescription">Job Description</p>
+            <h3>Requirements</h3>
+            <ul id="sidebarJobRequirements">
+                <li>Requirement 1</li>
+                <li>Requirement 2</li>
+                <li>Requirement 3</li>
+            </ul>
+            <div class="sidebar-buttons">
+                <button class="apply-btn" id="chatApplyBtn" onclick="window.location.href='Chat.html'">Chat to Apply</button>
+                <button class="save-btn" id="saveBtn">Save</button>
+            </div>
+        </div>
+    </aside>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Contact Section -->
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <p>Email: TrabaHope@gmail.com</p>
+                <p>Phone: +1 (234) 567-890</p>
+                <p>
+                    Address: 
+                    <a href="#" class="address-link" onclick="openMap()">Notre Dame of Marbel University</a>
+                </p>
+            </div>
+
+            <!-- Social Media Section with Icons -->
+            <div class="footer-section social">
+                <h2>Follow Us</h2>
+                <a href="https://www.facebook.com/profile.php?id=61567306560741" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <!-- Newsletter Subscription Section -->
+            <div class="footer-section newsletter">
+                <h2>Subscribe to TrabaHope</h2>
+                <form>
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 TrabaHope. All Rights Reserved.</p>
+        </div>
+    </footer>
+<script>
+    function openMap() {
+        const address = "Notre Dame of Marbel University, Koronadal City, South Cotabato"; // Address for the location
+        const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+        window.open(url, '_blank'); // Opens the map in a new tab
+    }
+</script>
+
+<style>
+    .address-link {
+        color: #ffffff; /* Set the link color to match your website */
+        text-decoration: none; /* Remove underline */
+        cursor: pointer; /* Change the cursor to indicate it's clickable */
+    }
+
+    .address-link:hover {
+        text-decoration: underline; /* Underline on hover for feedback */
+    }
+</style>

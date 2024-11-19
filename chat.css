@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/home-bg.jpg") center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 0 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative; /* Change to relative if fixed positioning causes issues */
+}
+
+.navbar .hamburger-btn {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navbar .logo-container {
+    display: flex;
+    flex-direction: column; /* Stack logo and dropdown button */
+    align-items: center; /* Center items */
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.navbar .logo img {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%;
+}
+
+.navbar .logo h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1; /* Ensure logo text is vertically aligned */
+    margin: 0; /* Remove default margin */
+}
+
+.navbar .links {
+    display: flex;
+    gap: 50px; /* Increase the gap between the links */
+    list-style: none;
+    margin: 0; /* Remove default margin */
+    align-items: center; /* Align links with the logo */
+    flex-grow: 1; /* Allow links to take available space */
+    justify-content: center; /* Center links within the navbar */
+}
+
+.navbar .links li {
+    display: flex; /* Ensure each link is a flex item */
+    align-items: center; /* Center each link vertically */
+}
+
+.navbar .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.navbar .links a {
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.navbar .links a:hover {
+    color: #19e8ff;
+    transform: translateY(-5px);
+}
+
+.language-selector {
+    position: relative;
+    margin-right: 30px; /* Space before the login button */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    gap: 40px; /* Adjust gap as needed for spacing */
+    z-index: 20;
+    margin-bottom: 40px;
+}
+
+.lang-btn {
+    background: none; /* Remove background */
+    color: #000; /* Adjust text color as needed */
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0; /* Remove padding */
+    border: none; /* Remove border */
+    cursor: pointer; /* Keep the pointer to indicate it's clickable */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 40px;
+    box-shadow: none; /* Remove shadow */
+    margin-top: 5px;
+}
+
+.lang-btn:hover {
+    background: none; /* No background change on hover */
+    transform: none; /* No lift effect on hover */
+    color: #19e8ff; /* Optionally change text color on hover */
+    box-shadow: none; /* No shadow on hover */
+}
+
+.lang-btn .arrow {
+    font-size: 0.75rem;
+    color: #275360;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%; /* Position just below the button */
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: none; /* Hide by default */
+    list-style: none;
+    width: 100px;
+    pointer-events: none; /* Prevent pointer events when hidden */
+    z-index: 100; /* Make sure it's above other elements */
+}
+
+.lang-dropdown.show {
+    display: block; /* Show when toggled */
+    pointer-events: auto; /* Allow interactions when shown */
+}
+
+.lang-dropdown li {
+    padding: 5px 0;
+}
+
+.lang-dropdown li a {
+    text-decoration: none;
+    color: #275360;
+    display: block;
+}
+
+.lang-dropdown li a:hover {
+    color: #00bcd4;
+}
+
+.language-selector:hover .lang-dropdown {
+    display: block;
+}
+
+/* Profile Section Styles */
+/* Profile Button */
+.profile-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+/* Ensure button aligns with language button in header */
+header .profile-button {
+    margin-right: 10px; /* Adjust as needed to align */
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures image maintains its aspect ratio */
+}
+
+/* Default profile icon if no image is provided */
+#profileImage {
+    display: block;
+}
+
+#profileImage[src=""] {
+    content: url('profile-icon.svg'); /* Use an icon as the default image */
+    width: 50px;
+    height: 50px;
+}
+
+/* Pop-up Overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Pop-up Content */
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h2 {
+    margin-top: 0;
+}
+
+.popup-content label {
+    display: block;
+    margin-top: 10px;
+}
+
+.popup-content input,
+.popup-content textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.popup-content button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #2980b9;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.close-btn {
+    margin-top: 10px;
+    background: transparent;
+    color: #2980b9;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column; /* Stack lines vertically */
+    cursor: pointer; /* Pointer cursor */
+    margin-top: 20px; /* Space below the logo */
+    position: relative; /* Ensure it is positioned relative for dropdown */
+    margin-right: 160px;
+}
+
+.line {
+    width: 30px; /* Width of each line */
+    height: 4px; /* Height of each line */
+    background-color: #275360; /* Color of the lines */
+    margin: 3px 0; /* Space between lines */
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Add this line */
+    top: 100%; /* Position just below the menu toggle button */
+    left: 0; /* Align to the left of the menu toggle */
+    margin-top: 5px; /* Space above dropdown */
+    background-color: #fff; /* Background for dropdown */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    padding: 10px; /* Inner padding */
+    z-index: 100; /* Ensure it is above other content */
+}
+
+.dropdown-content ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.dropdown-content li {
+    padding: 5px 0; /* Space between items */
+}
+
+.dropdown-content li a {
+    text-decoration: none; /* Remove underline */
+    color: #275360; /* Text color */
+    transition: color 0.3s ease; /* Transition for color change */
+}
+
+.dropdown-content li a:hover {
+    color: #19e8ff; /* Change color on hover */
+}
+
+/* Show dropdown when 'show' class is added */
+.dropdown-content.show {
+    display: block; /* Display block when shown */
+}
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align to start */
+    }
+
+    .navbar .hamburger-btn {
+        display: block; /* Show hamburger button on mobile */
+    }
+
+    .navbar .links {
+        display: none; /* Hide links on mobile by default */
+        flex-direction: column; /* Stack links vertically */
+        gap: 0; /* Remove gap for mobile */
+        width: 100%; /* Full width */
+        background: white; /* Background for dropdown */
+    }
+
+    .navbar .links.show {
+        display: flex; /* Show links when toggled */
+        position: absolute; /* Position absolutely */
+        top: 60px; /* Below the navbar */
+        left: 0; /* Align to left */
+        padding: 10px; /* Inner padding */
+        border: 1px solid #ddd; /* Border around links */
+        z-index: 100; /* Ensure above other content */
+    }
+
+    .search-title {
+        font-size: 30px; /* Adjust font size for mobile */
+        margin-top: 20px; /* Reduce margin for mobile */
+    }
+}

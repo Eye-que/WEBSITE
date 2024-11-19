@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | TrabaHope</title>
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home-style.css">
+    <script src="home-script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded" onclick="toggleDropdown()">menu</span>
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <img src="images/logo.jpg" alt="logo">
+                    <h2>TrabaHope</h2>
+                </a>
+                <!-- Dropdown Menu for Settings, Help, and About -->
+                <div class="menu-toggle" onclick="toggleDropdown()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="dropdown-content" id="dropdownContent">
+                <ul>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">About TrabaHope</a></li>
+                </ul>
+            </div>
+            
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+                <li><a href="home-index.html" class="home-btn">Home</a></li>
+                <li><a href="disocver-index.html" class="Discovery-btn">Discovery</a></li>
+                <li><a href="#">My Activity</a></li>
+                <li><a href="chat.html" class="class-btn">Chats</a></li>
+            </ul>
+           
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn">
+                    ENG <span class="arrow">&#9660;</span>
+                </button>
+                <ul class="lang-dropdown">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Spanish</a></li>
+                    <li><a href="#">French</a></li>
+                    <li><a href="#">German</a></li>
+                </ul>
+            </div>
+                
+            <!-- Profile Section -->
+            <div class="profile">
+                <img src="images/profile.jpg" alt="profile" class="profile-pic">
+                <span class="profile-label">Profile</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="blur-bg-overlay"></div>
+    <section class="about-us">
+        <div class="about-container">
+            <div class="about-content">
+                <h1>Welcome to <span class="highlight">TrabaHope</span></h1>
+                <p class="intro-text">Where finding your dream job is just a few clicks away. TrabaHope is your partner in career success, designed to simplify your job search journey. Whether you're looking for new opportunities or taking the first steps in your career, TrabaHope is here to connect you with the perfect roles.</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="material-symbols-rounded icon">search</span>
+                        <h3>Personalized Job Matches</h3>
+                        <p>Receive job suggestions tailored to your skills, interests, and experience to make your search easier and more effective.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-rounded icon">handshake</span>
+                        <h3>Direct Connections</h3>
+                        <p>Connect directly with employers and recruiters to learn more about the companies and roles you're interested in.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-rounded icon">support</span>
+                        <h3>24/7 Support</h3>
+                        <p>Our support team is here around the clock to help answer your questions and guide you through the job search process.</p>
+                    </div>
+                </div>
+    
+                <p class="closing-text">Join thousands of successful job seekers who have found hope, opportunity, and career growth with TrabaHope. Let's get you hired!</p>
+            </div>
+        </div>
+    </section>
+  <section class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+        <div class="team-member" data-name="Member 1" data-role="Role/Position" data-description="This is a description of Member 1. They are responsible for...">
+            <img src="images/member1.jpg" alt="Member 1" class="member-pic">
+            <h3>Member 1</h3>
+            <p>Role/Position</p>
+        </div>
+        <div class="team-member" data-name="Member 2" data-role="Role/Position" data-description="This is a description of Member 2. They specialize in...">
+            <img src="images/member2.jpg" alt="Member 2" class="member-pic">
+            <h3>Member 2</h3>
+            <p>Role/Position</p>
+        </div>
+        <div class="team-member" data-name="Member 3" data-role="Role/Position" data-description="This is a description of Member 3. Their expertise lies in...">
+            <img src="images/member3.jpg" alt="Member 3" class="member-pic">
+            <h3>Member 3</h3>
+            <p>Role/Position</p>
+        </div>
+        <div class="team-member" data-name="Member 4" data-role="Role/Position" data-description="This is a description of Member 4. They lead the efforts in...">
+            <img src="images/member4.jpg" alt="Member 4" class="member-pic">
+            <h3>Member 4</h3>
+            <p>Role/Position</p>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Structure -->
+<div class="modal" id="memberModal">
+    <div class="modal-content">
+        <span class="close-btn" style="cursor: pointer;">&times;</span>
+        <img id="modalImage" class="modal-image" src="" alt="Member Image">
+        <h2 id="modalName"></h2>
+        <h4 id="modalRole"></h4>
+        <p id="modalDescription"></p>
+    </div>
+</div>
